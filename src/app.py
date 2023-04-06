@@ -23,7 +23,6 @@ def register_get():
     #password = request.form['password']
     
     
-
     return render_template('authenticated.html')
 
 @app.route("/", methods=['POST'])
@@ -34,11 +33,10 @@ def register_post():
     password = request.form['password']
     
     
-    # TO-DO: Check if user already exists
-    
+    # Open user credentials file
+    with open(USER_CREDENTIALS, 'a+') as f:
 
-    # Write the user credentials to the file
-    with open(USER_CREDENTIALS, 'a') as f:
+        # Write the user credentials to the file as new user
         f.write(f"{username},{password}\n")
         #return "User registration successfull!"
         return render_template('loggedin.html')
@@ -67,6 +65,10 @@ def log_in():
                     # If not exist, return invalid credentials message
                     else:
                         return "Invalid credentials"
+
+            else:
+                return "Username does not exist."
+
 
     # If GET request, return the login template
     else:
