@@ -6,11 +6,62 @@
     <link rel="stylesheet" href="styles/index.css">
 </head>
 
-<div class="main">
-    <h2> Register TODAY!!! </h2>
-    <div class="index-buttons">
-        <form action="/register" method="GET"> 
-            <input type="submit"></submit
-        </form>
+<body>
+  <header class="header-bar">
+    <div class="name-title">
+
+      <h1> Web Authentication </h1>
+
     </div>
+
+    <nav>
+      <div class="main-nav">
+          
+      <ul>
+        <li>
+         <a href="/">Home</a>
+        </li>
+  
+        <li>
+          <a href="/authenticated">Authentication Check</a>
+        </li>
+  
+        <li>
+          <a href="/login">Login</a>
+        </li>
+      </ul>
+
+      </div>
+    </nav>
+
+  </header>
+
+<div class="main">
+
+  <div class="left-side">
+    <ul>
+      Hello.
+    </ul>
+    <ul>
+      You are currently not an authenticated user.
+    </ul>
+    <ul>
+      Register, or log-in to be authenticated.
+    </ul>
+  </div>
+
+  <div class="right-side">
+    <ul>
+      Registration form.
+    </ul>
+    <form method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" value="Submit">
+    </form>
+  </div>    
 </div>
+
+</body>

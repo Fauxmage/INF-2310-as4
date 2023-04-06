@@ -1,13 +1,65 @@
 
 body {
   background-color: black;
+  font-family: 'Open-Sans', sans-serif;
+}
+
+nav {
+  width: 100%;
+}
+
+nav .main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+}  
+
+nav .main-nav li {
+  float: left;
+}
+
+nav .main-nav a {
+  display: block;
+  color: pink;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #111;
 }
 
 .main {
-  flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: center;
+  justify-content: center;
   color: rgb(255, 148, 221);
   background-color: black;
+}
+
+.left-side {
+  width: 35%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.right-side {
+  width: 35%;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
 }
