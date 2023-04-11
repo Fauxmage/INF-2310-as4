@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for
 import os.path 
+import bcrypt
 
 app = Flask(__name__, template_folder='templates', static_folder='styles')
 
