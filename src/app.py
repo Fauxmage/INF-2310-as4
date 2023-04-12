@@ -56,8 +56,6 @@ def log_in():
         username = request.form['username']
         password = request.form['password']
         p_bytes = password.encode('utf-8')
-        salt = bcrypt.gensalt()
-        hash = bcrypt.hashpw(p_bytes, salt)
         print(hash)
 
         # Check if the user exists in our file
@@ -65,12 +63,20 @@ def log_in():
             lines = f.readlines()
             for line in lines:
                 if username in line:
-
+                    
                     # Check whether the password exists for the specific user
-                    exists_username, exists_password = line.strip().split(',')
-                    if exists_password == bcrypt.checkpw(password, hash):
-                        #return f"Welcome, {username}!"
+                    exists_username, exists_password = line.strip().split(',')  
+                    pwd = exists_password.encode('utf-8')         
+                    pass_hash = bcrypt.checkpw(p_bytes, pwd)
+                
+
+                    print("Exists password:", exists_password)
+                    print("Pass hash:", password)
+
+
+                    if pass_hash == True:
                         return render_template('loggedin.html')
+                    
 
                     # If not exist, return invalid credentials message
                     else:
