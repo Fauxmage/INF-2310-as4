@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, url_for
+#from OpenSSL import SSL
 import os.path 
 import bcrypt
 
@@ -32,13 +33,17 @@ def register_post():
     # Get the user credentials
     username = request.form['username']
     password = request.form['password']
-    
+
+    p_bytes = password.encode('utf-8')
+    salt = bcrypt.gensalt()
+    hash = bcrypt.hashpw(p_bytes, salt)
+    print(hash)
     
     # Open user credentials file
     with open(USER_CREDENTIALS, 'a+') as f:
 
         # Write the user credentials to the file as new user
-        f.write(f"{username},{password}\n")
+        f.write(f"{username},{hash}\n")
         #return "User registration successfull!"
         return render_template('loggedin.html')
     
@@ -50,6 +55,10 @@ def log_in():
         # User credentials
         username = request.form['username']
         password = request.form['password']
+        p_bytes = password.encode('utf-8')
+        salt = bcrypt.gensalt()
+        hash = bcrypt.hashpw(p_bytes, salt)
+        print(hash)
 
         # Check if the user exists in our file
         with open(USER_CREDENTIALS, 'r') as f:
@@ -59,7 +68,7 @@ def log_in():
 
                     # Check whether the password exists for the specific user
                     exists_username, exists_password = line.strip().split(',')
-                    if exists_password == password:
+                    if exists_password == bcrypt.checkpw(password, hash):
                         #return f"Welcome, {username}!"
                         return render_template('loggedin.html')
 
