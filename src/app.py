@@ -57,36 +57,26 @@ def log_in():
         # User credentials
         username = request.form['username']
         password = request.form['password']
+        passies = password.encode('utf-8')
         print(hash)
 
         # Check whether the password exists for the specific user
+
+        fetch_usr = conf.return_user(username)
+        print("In app password before check:", fetch_usr)
         
-        """
-        # Check if the user exists in our file
-        with open(USER_CREDENTIALS, 'r') as f:
-            lines = f.readlines()
-            for line in lines:
-                if username in line:
-                    
+        if fetch_usr != False:
             
-                
+            pwd_check = bcrypt.checkpw(passies, fetch_usr)
+            if pwd_check == True:
+                return render_template('loggedin.html')
+            else: 
+                return "Wrong password."
+        else:
+            return "User does not exist."
 
-                    print("Exists password:", exists_password)
-                    print("Pass hash:", password)
 
-
-                    if pass_hash == True:
-                        return render_template('loggedin.html')
-                    
-
-                    # If not exist, return invalid credentials message
-                    else:
-                        return "Invalid credentials"
-
-            else:
-                return "Username does not exist."
-
-            """
+     
 
 
     # If GET request, return the login template
