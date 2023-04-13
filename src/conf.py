@@ -1,10 +1,10 @@
-import sqlite3 as sql
+import sqlite3 as db
 
 
 def reg_user(username, password):
     """ Inserts newly registered user into the database """
     
-    conn = sql.connect("test.db")
+    conn = db.connect("test.db")
     cur = conn.cursor()
 
     cur.execute("INSERT INTO USERS (USERNAME,PASSWORD) VALUES (?,?)", (username,password))
@@ -18,7 +18,7 @@ def return_user(username):
     
     user_lookup = username
 
-    conn = sql.connect("test.db")
+    conn = db.connect("test.db")
     cur = conn.cursor()
 
     pwd_fetch = cur.execute("SELECT PASSWORD FROM USERS WHERE USERNAME=?", (user_lookup,))
@@ -32,6 +32,9 @@ def return_user(username):
         return pwd_byte
     else:
         return False
+    
+def authenticate_user(username):
+    pass
 
 
     
