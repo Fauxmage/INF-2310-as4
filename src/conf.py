@@ -34,7 +34,18 @@ def return_user(username):
         return False
     
 def authenticate_user(username):
-    pass
+    user_lookup = username
+
+    conn = db.connect("test.db")
+    cur = conn.cursor()
+
+    user_fetch = cur.execute("SELECT USERNAME FROM USERS WHERE USERNAME=?", (user_lookup,))
+    user = user_fetch.fetchone()
+
+    if user:
+        return True
+    else:
+        return False
 
 
     

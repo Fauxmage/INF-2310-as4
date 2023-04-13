@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, session, redirect
 import os.path 
 from db import create_db
 import bcrypt
 import conf
 
 app = Flask(__name__, template_folder='templates', static_folder='styles')
+app.secret_key = os.urandom(16)
 
 USER_CREDENTIALS = "user_creds.txt"
 
@@ -22,11 +23,20 @@ def register_get():
     If the user is not logged in, the authentication check is not approved.
     """
 
-    username = request.form['username']
-    password = request.form['password']
+    #username = request.form['username']
+    #password = request.form['password']
+
+    if not session.get('logged_in'):
+
+        # If user is not logged in, redirect to login
+        return render_template('login.html')
+    
+    else:
+        # If user is logged in, render the authenticated secret template
+        return render_template('authenticated.html')
     
     
-    return render_template('authenticated.html')
+    
 
 @app.route("/", methods=['POST'])
 def register_post():
@@ -72,6 +82,7 @@ def log_in():
             
             pwd_check = bcrypt.checkpw(passies, fetch_usr)
             if pwd_check == True:
+                session['logged_in'] = True
                 return render_template('loggedin.html')
             else: 
                 return "Wrong password."
@@ -83,6 +94,12 @@ def log_in():
     else:
         return render_template('login.html')
     
+@app.route('/logout', methods=['POST'])
+def logout():
+    session.pop('logged_in', None)
+
+    # Redirect to front page
+    return redirect(url_for('/'))
         
 
 
