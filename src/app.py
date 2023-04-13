@@ -22,14 +22,15 @@ def register_get():
     If the user is not logged in, the authentication check is not approved.
     """
 
-    #username = request.form['username']
-    #password = request.form['password']
+    username = request.form['username']
+    password = request.form['password']
     
     
     return render_template('authenticated.html')
 
 @app.route("/", methods=['POST'])
 def register_post():
+    """ Register a new user """
     
     # Get username and password from register form
     username = request.form['username']
@@ -51,7 +52,9 @@ def register_post():
 
 @app.route("/login", methods=['POST', 'GET'])
 def log_in():
+    """ Log in, redirects user if successful to /loggedin, otherwise give correct error message """
     
+    # If POST, attempt to login with provided user credentials
     if request.method == 'POST':
 
         # User credentials
@@ -74,9 +77,6 @@ def log_in():
                 return "Wrong password."
         else:
             return "User does not exist."
-
-
-     
 
 
     # If GET request, return the login template
