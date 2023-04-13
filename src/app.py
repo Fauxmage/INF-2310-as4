@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, url_for
-#from OpenSSL import SSL
 import os.path 
+from db import create_db
 import bcrypt
+import conf
 
 app = Flask(__name__, template_folder='templates', static_folder='styles')
 
@@ -30,44 +31,44 @@ def register_get():
 @app.route("/", methods=['POST'])
 def register_post():
     
-    # Get the user credentials
+    # Get username and password from register form
     username = request.form['username']
     password = request.form['password']
 
+    # Hash password 
     p_bytes = password.encode('utf-8')
     salt = bcrypt.gensalt()
-    hash = bcrypt.hashpw(p_bytes, salt)
+    hash_pass = bcrypt.hashpw(p_bytes, salt)
     print(hash)
-    
-    # Open user credentials file
-    with open(USER_CREDENTIALS, 'a+') as f:
 
-        # Write the user credentials to the file as new user
-        f.write(f"{username},{hash}\n")
-        #return "User registration successfull!"
-        return render_template('loggedin.html')
+    # Insert user into database
+    conf.reg_user(username=username, password=hash_pass)
+
+    # Render template
+    return render_template('loggedin.html')
+
     
 
 @app.route("/login", methods=['POST', 'GET'])
 def log_in():
     
     if request.method == 'POST':
+
         # User credentials
         username = request.form['username']
         password = request.form['password']
-        p_bytes = password.encode('utf-8')
         print(hash)
 
+        # Check whether the password exists for the specific user
+        
+        """
         # Check if the user exists in our file
         with open(USER_CREDENTIALS, 'r') as f:
             lines = f.readlines()
             for line in lines:
                 if username in line:
                     
-                    # Check whether the password exists for the specific user
-                    exists_username, exists_password = line.strip().split(',')  
-                    pwd = exists_password.encode('utf-8')         
-                    pass_hash = bcrypt.checkpw(p_bytes, pwd)
+            
                 
 
                     print("Exists password:", exists_password)
@@ -85,10 +86,13 @@ def log_in():
             else:
                 return "Username does not exist."
 
+            """
+
 
     # If GET request, return the login template
     else:
         return render_template('login.html')
+    
         
 
 
