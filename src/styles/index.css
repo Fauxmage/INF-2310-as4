@@ -1,12 +1,27 @@
 
 body {
-  background-color: black;
+  background-color: rgb(19, 19, 19);
   font-family: 'Open-Sans', sans-serif;
+}
+
+.header-title {
+  width: 100%;
+  height: 200px;
+  margin: auto;
+  padding: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: palevioletred;
+  background-image: url(anfo.png);
+
 }
 
 nav {
   width: 100%;
-  background-color: aliceblue;
+
 }
 
 nav .main-nav ul {
@@ -26,12 +41,13 @@ nav .main-nav a {
   display: block;
   color: pink;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 16px;
   text-decoration: none;
+  backdrop-filter: blur(8px);
 }
 
 nav li a:hover {
-  background-color: #111;
+  background-color: #22222287;
 }
 
 .main {
@@ -42,7 +58,7 @@ nav li a:hover {
   text-align: center;
   justify-content: center;
   color: rgb(255, 148, 221);
-  background-color: black;
+  backdrop-filter: blur(8px);
 }
 
 .left-side {
