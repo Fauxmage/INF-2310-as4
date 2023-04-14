@@ -1,42 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<title> Login Page </title>
-
-<head>
-    <link rel="stylesheet" href="styles/index.css">
-</head>
-
-<body>
-  <header class="header-bar">
-    <div class="name-title">
-
-      <h1> Web Authentication </h1>
-
-    </div>
-
-    <nav>
-      <div class="main-nav">
-          
-      <ul>
-        <li>
-         <a href="/">Home</a>
-        </li>
-  
-        <li>
-          <a href="/authenticated">Authentication Check</a>
-        </li>
-  
-        <li>
-          <a href="/login">Login</a>
-        </li>
-      </ul>
-
-      </div>
-    </nav>
-
-  </header>
-
-<div class="main">
+  {% block content %}
 
     <div class="right-side">
 
@@ -53,6 +17,4 @@
         </form>
     </div>
   
-</div>
-
-</body>
+{% endblock %}
