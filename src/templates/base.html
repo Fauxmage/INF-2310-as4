@@ -25,11 +25,23 @@
         <li>
           <a href="/authenticated">Authentication Check</a>
         </li>
-  
+
         <li>
-          <a href="/login">Login</a>
+            <span id="login-button"></span>
+            <script>
+              var loginButton = document.getElementById('login-button');
+              {% if session.logged_in %}
+                loginButton.innerHTML = '<a href="/logout">Log out</a>';
+              {% else %}
+                loginButton.innerHTML = '<a href="/login">Log in</a>';
+              {% endif %}
+            </script>
         </li>
+
       </ul>
+
+
+
 
       </div>
     </nav>

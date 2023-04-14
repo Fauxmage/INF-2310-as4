@@ -15,16 +15,13 @@ def home():
     # Returns homepage/index page
     return render_template('index.html')
 
-@app.route("/authenticated", methods=['GET'])
+@app.route("/authenticated", methods=['POST', 'GET'])
 def register_get():
     """
     Authentication check for users. 
     If the user is logged in, then the authentication check approves.
     If the user is not logged in, the authentication check is not approved.
     """
-
-    #username = request.form['username']
-    #password = request.form['password']
 
     if not session.get('logged_in'):
 
@@ -56,7 +53,7 @@ def register_post():
     conf.reg_user(username=username, password=hash_pass)
 
     # Render template
-    return render_template('loggedin.html')
+    return render_template('login   .html')
 
     
 
@@ -83,7 +80,7 @@ def log_in():
             pwd_check = bcrypt.checkpw(passies, fetch_usr)
             if pwd_check == True:
                 session['logged_in'] = True
-                return render_template('loggedin.html')
+                return render_template('index.html')
             else: 
                 return "Wrong password."
         else:
@@ -94,12 +91,12 @@ def log_in():
     else:
         return render_template('login.html')
     
-@app.route('/logout', methods=['POST'])
+@app.route('/logout', methods=['POST', 'GET'])
 def logout():
     session.pop('logged_in', None)
 
     # Redirect to front page
-    return redirect(url_for('/'))
+    return render_template('/loggedout.html')
         
 
 

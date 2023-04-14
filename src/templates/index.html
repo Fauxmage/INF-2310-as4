@@ -6,13 +6,28 @@
     <ul>
       Hello.
     </ul>
+
+    {% if session.logged_in %}
+
+    <ul>
+      You are currently logged in.
+    </ul>
+    <ul>
+      Go to Authentication Check to see if you are authenticated.
+    </ul>
+
+    {% else %}
+
     <ul>
       You are currently not an authenticated user.
     </ul>
     <ul>
       Register, or log-in to be authenticated.
     </ul>
+
+    {% endif %}
   </div>
+
 
   <div class="right-side">
     <ul>
