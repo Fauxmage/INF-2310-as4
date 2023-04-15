@@ -7,7 +7,6 @@ import conf
 app = Flask(__name__, template_folder='templates', static_folder='styles')
 app.secret_key = os.urandom(16)
 
-USER_CREDENTIALS = "user_creds.txt"
 
 @app.route("/")
 def home():
@@ -69,8 +68,16 @@ def register_post():
     hash_pass = bcrypt.hashpw(p_bytes, salt)
     print(hash)
 
-    # Insert user into database
-    conf.reg_user(username=username, password=hash_pass)
+    check_username = conf.authenticate_user(username=username)
+
+    # Check if username exists in database
+    if check_username == True:
+        return "Username already exists."
+    
+    else:
+
+        # Insert user into database
+        conf.reg_user(username=username, password=hash_pass)
 
     # Render template
     return redirect('/login')

@@ -34,6 +34,8 @@ nav .main-nav ul {
 
 nav .main-nav li {
   float: left;
+  border: 1px solid black; /* sets border style, width, and color */
+  padding: auto;
 }
 
 nav .main-nav a {
@@ -52,7 +54,7 @@ nav li a:hover {
 .main {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -60,22 +62,29 @@ nav li a:hover {
   backdrop-filter: blur(8px);
 }
 
-.left-side {
-  width: 35%;
-  float: left;
-  display: flex;
+
+.right-side {
+  width: 50%;
+  display: block;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   overflow: hidden;
 }
+.register-box {
+  justify-content: left;
+  border: 2px solid black; /* sets border style, width, and color */
+  padding: 2%;
+  border-radius: 5%;
+  display: inline-block; /* displays the div as an inline-block element */
+  background-color: aquamarine;
+}
 
-.right-side {
-  width: 35%;
-  float: right;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
+.login-box {
+  text-align: left;
+  border: 2px solid black; /* sets border style, width, and color */
+  padding: 2%;
+  border-radius: 5%;
+  display: inline-block; /* displays the div as an inline-block element */
+  background-color: aquamarine;
 }

@@ -2,7 +2,10 @@
 
   {% block content %}
 
-  <div class="left-side">
+
+
+
+  <div class="right-side">
     <ul>
       Hello.
     </ul>
@@ -26,20 +29,20 @@
     </ul>
 
     {% endif %}
-  </div>
 
-
-  <div class="right-side">
-    <form method="POST">
-      <ul>
-        Register here
-      </ul>
-    <label for="username">Username</label> <br>
-    <input type="text" id="username" name="username"><br><br>
-    <label for="password">Password</label><br>
-    <input type="password" id="password" name="password"><br><br>
-    <input type="submit" value="Submit">
-    </form>
+    <ul>
+      Register here
+    </ul>
+  
+    <div class="register-box">
+      <form method="POST">
+      <label for="username">Username</label> <br>
+      <input type="text" id="username" name="username"><br><br>
+      <label for="password">Password</label><br>
+      <input type="password" id="password" name="password"><br><br>
+      <input type="submit" value="Submit">
+      </form>
+    </div>
   </div> 
 
   {% endblock  %}   
