@@ -26,7 +26,7 @@ def register_get():
     if not session.get('logged_in'):
 
         # If user is not logged in, redirect to login
-        return render_template('login.html')
+        return redirect('/login')
     
     else:
         # If user is logged in, render the authenticated secret template
@@ -53,7 +53,7 @@ def register_post():
     conf.reg_user(username=username, password=hash_pass)
 
     # Render template
-    return render_template('login   .html')
+    return redirect('/login')
 
     
 
@@ -80,7 +80,7 @@ def log_in():
             pwd_check = bcrypt.checkpw(passies, fetch_usr)
             if pwd_check == True:
                 session['logged_in'] = True
-                return render_template('index.html')
+                return redirect('/')
             else: 
                 return "Wrong password."
         else:
