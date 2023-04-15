@@ -16,12 +16,13 @@ def home():
     return render_template('index.html')
 
 @app.route("/authenticated", methods=['POST', 'GET'])
-def register_get():
+def authenticated():
     """
     Authentication check for users. 
     If the user is logged in, then the authentication check approves.
     If the user is not logged in, the authentication check is not approved.
     """
+    
 
     if not session.get('logged_in'):
 
@@ -30,7 +31,26 @@ def register_get():
     
     else:
         # If user is logged in, render the authenticated secret template
+
         return render_template('authenticated.html')
+    
+@app.route("/authenticatedweeb", methods=['POST', 'GET'])
+def authenticated_weeb():
+    """
+    This is a special authentication check
+    existing only for Jørn.
+    """
+    
+
+    if not session.get('logged_in'):
+
+        # If user is not logged in, redirect to login
+        return redirect('/login')
+    
+    else:
+        # If user is logged in, render the authenticated secret template
+
+        return render_template('authenticatedweeb.html')
     
     
     
@@ -79,7 +99,7 @@ def log_in():
             
             pwd_check = bcrypt.checkpw(passies, fetch_usr)
             if pwd_check == True:
-                session['logged_in'] = True
+                session['logged_in'] = username
                 return redirect('/')
             else: 
                 return "Wrong password."

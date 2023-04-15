@@ -4,6 +4,9 @@
 
 <head>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=outline">
+
 </head>
 
 <body>
@@ -21,10 +24,16 @@
         <li>
          <a href="/">Home</a>
         </li>
-  
+
+        {% if session.logged_in == 'Jørn' or 'jørn' or 'jorn' or 'Jorn' %}
+        <li>
+          <a href="/authenticatedweeb">Authentication Check</a>
+        </li>
+        {% else %}
         <li>
           <a href="/authenticated">Authentication Check</a>
         </li>
+        {% endif %}
 
         <li>
             <span id="login-button"></span>

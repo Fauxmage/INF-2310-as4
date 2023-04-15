@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: palevioletred;
+    color: rgb(77, 0, 26);
   
   }
   
@@ -56,26 +56,16 @@ body {
     align-items: center;
     text-align: center;
     justify-content: center;
-    color: rgb(255, 148, 221);
-    backdrop-filter: blur(8px);
+    color: rgb(77, 0, 26);
   }
   
-  .left-side {
-    width: 35%;
-    float: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-  }
   
   .right-side {
-    width: 35%;
-    float: right;
+    width: 25%;
+    height: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    overflow: hidden;
+    backdrop-filter: blur(8px);
+
   }

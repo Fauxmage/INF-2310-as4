@@ -1,12 +1,12 @@
 
 body {
-  background-color: rgb(19, 19, 19);
-  font-family: 'Open-Sans', sans-serif;
+  background-color: rgba(26, 20, 24, 0.674);
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .header-title {
   width: 100%;
-  height: 298px;
+  height: 325px;
   margin: auto;
   padding: auto;
   display: flex;
@@ -14,7 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: palevioletred;
+  color: rgb(77, 0, 26);
   background-image: url(anfo.jpg);
 }
 
