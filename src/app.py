@@ -66,7 +66,6 @@ def register_post():
     p_bytes = password.encode('utf-8')
     salt = bcrypt.gensalt()
     hash_pass = bcrypt.hashpw(p_bytes, salt)
-    print(hash)
 
     check_username = conf.authenticate_user(username=username)
 
@@ -95,12 +94,10 @@ def log_in():
         username = request.form['username']
         password = request.form['password']
         passies = password.encode('utf-8')
-        print(hash)
 
         # Check whether the password exists for the specific user
 
         fetch_usr = conf.return_user(username)
-        print("In app password before check:", fetch_usr)
         
         if fetch_usr != False:
             
