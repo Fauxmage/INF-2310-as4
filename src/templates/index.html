@@ -1,48 +1,52 @@
 {% extends 'base.html' %}
 
   {% block content %}
-
-
-
-
-  <div class="right-side">
-    <ul>
-      Hello.
-    </ul>
+ 
 
     {% if session.logged_in %}
 
-    <ul>
+
+      <h3>
       You are currently logged in.
-    </ul>
-    <ul>
-      Go to Authentication Check to see if you are authenticated.
-    </ul>
+      </h3>
+      
+      <h3>
+      Go to "Authentication Check" to see if you are an authenticated user.
+      </h3>
 
     {% else %}
 
-    <ul>
-      You are currently not an authenticated user.
-    </ul>
-    <ul>
-      Register, or log-in to be authenticated.
-    </ul>
+      <h3>
+      </h3>
 
     {% endif %}
+    
+    {% if session.logged_in %}
 
-    <ul>
-      Register here
-    </ul>
+    {% else %}
+
+    <section id="login" class="login">
+
+      <div class="head">
+        <h1>Welcome!</h1>
+      </div>
+
+      <p>Please register here</p>
   
     <div class="register-box">
+      
       <form method="POST">
       <label for="username">Username</label> <br>
-      <input type="text" id="username" name="username"><br><br>
+      <input type="text" id="username" name="username" placeholder="Username" required><br><br>
       <label for="password">Password</label><br>
-      <input type="password" id="password" name="password"><br><br>
+      <input type="password" id="password" name="password" placeholder="Password" required><br><br>
       <input type="submit" value="Submit">
       </form>
     </div>
-  </div> 
+
+    </section>
+
+    
+    {% endif %}  
 
   {% endblock  %}   

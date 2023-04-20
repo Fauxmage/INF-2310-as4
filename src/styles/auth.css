@@ -17,54 +17,89 @@ body {
     color: rgb(77, 0, 26);  
   }
   
+  .greetings {
+    color: rgb(152, 67, 213);
+    margin: auto;
+    padding: auto;
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+  }
+  
   nav {
     width: 100%;
-  
+    border-radius: 8px;
   }
   
   nav .main-nav ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 2px;
     display: flex;
     overflow: hidden;
     justify-content: center;
+    border-radius: 8px;
   }  
   
   nav .main-nav li {
     float: left;
+    border: 1px solid rgba(25, 25, 25, 0.451); 
+    padding: auto;
+    border-radius: 8px;
   }
   
   nav .main-nav a {
     display: block;
-    color: rgba(25, 25, 25, 0.764);
+    color: rgba(25, 25, 25, 0.451);
     text-align: center;
     padding: 16px 16px;
     text-decoration: none;
     backdrop-filter: blur(8px);
+    border-radius: 8px;
   }
   
   nav li a:hover {
-    background-color: #22222287;
+    color: black;
   }
   
   .main {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
-    color: rgb(77, 0, 26);
+    color: rgb(255, 148, 221);
   }
   
   
-  .right-side {
-    width: 25%;
-    height: 5%;
+  
+  .login, .register {
+    color: rgb(37, 37, 37);
+    background: rgb(221, 164, 214);
+    margin: auto;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2), 0px 10px 20px rgba(0,0,0,0.3), 0px 30px 60px 1px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 40px;
+  }
+  
+  .login .head {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    backdrop-filter: blur(8px);
-
+    justify-content: center;
+  }
+  
+  .login-box {
+    text-align: left;
+    display: inline-block;
+  }
+  
+  .register .head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .register-box {
+    text-align: left;
+    display: inline-block; 
   }

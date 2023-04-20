@@ -1,7 +1,7 @@
 
 body {
   background-color: rgba(26, 20, 24, 0.674);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: sans-serif;
 }
 
 .header-title {
@@ -16,39 +16,47 @@ body {
   text-align: center;
   color: rgb(77, 0, 26);
   background-image: url(banner.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
 }
 
 nav {
   width: 100%;
+  border-radius: 8px;
 
 }
 
 nav .main-nav ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 2px;
   display: flex;
   overflow: hidden;
   justify-content: center;
+  border-radius: 8px;
 }  
 
 nav .main-nav li {
   float: left;
-  border: 1px solid black; /* sets border style, width, and color */
+  border: 1px solid rgba(25, 25, 25, 0.451); 
   padding: auto;
+  border-radius: 8px;
 }
 
 nav .main-nav a {
   display: block;
-  color: rgba(25, 25, 25, 0.764);
+  color: rgba(25, 25, 25, 0.451);
   text-align: center;
   padding: 16px 16px;
   text-decoration: none;
   backdrop-filter: blur(8px);
+  border-radius: 8px;
 }
 
 nav li a:hover {
-  background-color: #22222287;
+  color: black;
 }
 
 .main {
@@ -59,32 +67,37 @@ nav li a:hover {
   text-align: center;
   justify-content: center;
   color: rgb(255, 148, 221);
-  backdrop-filter: blur(8px);
 }
 
 
-.right-side {
-  width: 50%;
-  display: block;
+
+.login, .register {
+  color: rgb(37, 37, 37);
+  background: rgb(221, 164, 214);
+  margin: auto;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2), 0px 10px 20px rgba(0,0,0,0.3), 0px 30px 60px 1px rgba(0,0,0,0.5);
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.login .head {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  overflow: hidden;
-}
-.register-box {
-  justify-content: left;
-  border: 2px solid black; /* sets border style, width, and color */
-  padding: 2%;
-  border-radius: 5%;
-  display: inline-block; /* displays the div as an inline-block element */
-  background-color: aquamarine;
 }
 
 .login-box {
   text-align: left;
-  border: 2px solid black; /* sets border style, width, and color */
-  padding: 2%;
-  border-radius: 5%;
-  display: inline-block; /* displays the div as an inline-block element */
-  background-color: aquamarine;
+  display: inline-block;
+}
+
+.register .head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-box {
+  text-align: left;
+  display: inline-block; 
 }

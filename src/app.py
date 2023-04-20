@@ -7,6 +7,8 @@ import conf
 app = Flask(__name__, template_folder='templates', static_folder='styles')
 app.secret_key = os.urandom(16)
 
+host = '0.0.0.0'
+port = '443'
 
 @app.route("/")
 def home():
